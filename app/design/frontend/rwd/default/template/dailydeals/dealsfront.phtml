@@ -1,0 +1,136 @@
+<?php
+$frontblock=new Aaryasolutions_Dailydeals_Block_Dealsfront();
+$productId=$frontblock->getToShowProductId();
+$product_obj=Mage::getModel('catalog/product')->load($productId);
+?>
+
+ <div class="col-md-6">
+              <div class="daily_deals">
+                <h3>Daily Deals</h3>
+                <div class="clearfix"></div>
+                <p><a href="<?php echo $product_obj->getProductUrl(); ?>"><?php echo $product_obj->getName(); ?></a></p>
+                  <table width="336" align="left" cellspacing="2" cellpadding="2" border="0">
+                    <tbody>
+                      <tr>
+                      <td width="80" bgcolor="#071849" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Original Price</font></td>
+                      <td width="80" bgcolor="#071849" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Discount</font></td>
+                      <td width="80" bgcolor="#071849" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF">Price</font></td>
+                      </tr>
+                      <tr>
+
+                        <?php
+                         $old=$product_obj->getPrice();
+                         $new=$product_obj->getFinalPrice();
+
+                         $percentage=100*(($old-$new)/$old);
+
+                        ?>
+                      <td width="80" bgcolor="#FFFFFF" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#071849"><del><?php echo $old; ?></del></font></td>
+                      <td width="80" bgcolor="#FFFFFF" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#071849"><?php echo ceil($percentage); ?></font></td>
+                      <td width="80" bgcolor="#FFFFFF" align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#071849"><?php echo $new; ?></font></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="clearfix"></div>
+                  <div class="daily_deals_time">
+                    <span class="daily_deals_time_left">
+                      <h5>Time Left</h5>
+                      <small id="calculate_time_left_holder"></small>
+                    </span>
+                    <h3><a href="<?php echo $product_obj->getProductUrl(); ?>">BUY NOW!</a></h3>
+                  </div>
+              </div>
+            </div>
+          
+<script type="text/javascript">
+<?php
+$tomdate = date("F j, Y", strtotime("tomorrow"));
+
+
+ 
+?>
+// set the date we're counting down to
+var target_date = new Date("<?php echo $tomdate; ?>").getTime();
+ 
+// variables for time units
+var days, hours, minutes, seconds;
+ 
+// get tag element
+var countdown = document.getElementById("calculate_time_left_holder");
+ 
+// update the tag with id "countdown" every 1 second
+setInterval(function () {
+ 
+    // find the amount of "seconds" between now and target
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+ 
+    // do some time calculations
+    days = parseInt(seconds_left / 86400);
+    seconds_left = seconds_left % 86400;
+     
+    hours = parseInt(seconds_left / 3600);
+    seconds_left = seconds_left % 3600;
+     
+    minutes = parseInt(seconds_left / 60);
+    seconds = parseInt(seconds_left % 60);
+     
+    // format countdown string + set tag value
+    countdown.innerHTML = days + ":" + hours + ":"
+    + minutes + ":" + seconds;  
+ 
+}, 1000);
+</script>
+
+<style type="text/css">
+.daily_deals {
+  border: 4px solid #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  width: 70%;
+   background: #ccc;
+  
+}
+.daily_deals h3 {
+  font-size: 24px;
+ text-align: center;
+}
+
+.daily_deals p {
+  font-size: 18px;
+  margin-bottom: 15px
+}
+
+.daily_deals table {
+  width: 100%
+}
+
+.daily_deals table td {
+  font-size: 18px
+}
+.col-main {
+  float: left!important;;
+}
+
+.daily_deals_time h5 {
+  font-size: 18px;
+  margin-top: 25px;
+  color: red;
+}
+.daily_deals_time small {
+  font-size: 18px;
+}
+.daily_deals{
+  width: 100%!important;
+  box-shadow: 5px 8px 8px #00cccc;
+}
+
+.daily_deals_time h3{
+  border: 2px solid;
+  width: 30%;
+  text-align: center;
+  margin-left: 35%;
+  background: #000;
+  border-radius: 7px;
+}
+</style>
