@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Aaryasolutions_Dailydeals",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "This extension create deals on the basis of price.",
+    "authors": [
+    {
+        "name": "AaryaSolutions",
+        "email": "info@aaryasolutions.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

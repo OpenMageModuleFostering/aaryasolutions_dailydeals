@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aaryasolutions_Dailydeals>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Aaryasolutions_Dailydeals>
+    </modules>
+</config>
+
