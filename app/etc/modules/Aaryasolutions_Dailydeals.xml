@@ -3,7 +3,7 @@
     <modules>
         <Aaryasolutions_Dailydeals>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Aaryasolutions_Dailydeals>
     </modules>
 </config>
