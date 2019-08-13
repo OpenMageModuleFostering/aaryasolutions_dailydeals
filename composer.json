@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
-    "description": "This extension helps to add deals to product. We can add date to selected product from magento admin panel.",
+    "description": "Aaryasolutions_Dailydeals",
     "authors": [
     {
         "name": "AaryaSolutions",

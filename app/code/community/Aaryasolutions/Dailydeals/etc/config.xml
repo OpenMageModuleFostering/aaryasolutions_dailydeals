@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Aaryasolutions_Dailydeals>
-			<version>0.1.1</version>
+			<version>0.1.3.1</version>
 		</Aaryasolutions_Dailydeals>
 	</modules>
     <frontend>
@@ -23,17 +23,32 @@
             </updates>
         </layout>
     </frontend>
-	<admin>
-        <routers>
-            <adminhtml>
-                <args>
-                    <modules>
-                        <Aaryasolutions_Dailydeals before="Mage_Adminhtml">Aaryasolutions_Dailydeals</Aaryasolutions_Dailydeals>
-                    </modules>
-                </args>
-            </adminhtml>
-        </routers>
-	</admin>
+    <adminhtml>
+        <menu>
+        <aaryasolutions translate="title" module="dailydeals">
+                <title>Aaryasolutions</title>
+            <sort_order>100</sort_order>
+        </aaryasolutions>
+        <aaryasolutions>
+
+                        <children>
+                            <dailydeals translate="title" module="dailydeals">
+                                <title>Daily Deals</title>
+                                <sort_order>120</sort_order>
+                                <action>dailydeals/adminhtml_dailydeals</action>
+                            </dailydeals>   
+            </children>
+            </aaryasolutions>
+        </menu>
+
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+            </resources>
+        </acl>
+    </adminhtml>
 
     
     <global>
@@ -83,16 +98,5 @@
             </dailydeals_read>
         </resources> 
     </global>
-      
-    <adminhtml>
-        <layout>
-            <updates>
-                <dailydeals>
-                    <file>dailydeals/dailydeals.xml</file>
-                </dailydeals>
-            </updates>
-        </layout>
-    </adminhtml>  
-
-
+    
 </config>
